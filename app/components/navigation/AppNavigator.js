@@ -11,12 +11,34 @@ const Stack = createStackNavigator();
 
 const AppNavigator = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} />
+    <Stack.Navigator
+      screenOptions={{
+        headerTransparent: true,
+        headerTitle: "",
+        headerTintColor: "white",
+        headerLeftContainerStyle: {
+          width: 40,
+          height: 40,
+          borderRadius: 30,
+          backgroundColor: "rgba(92,90,91,0.7)",
+          alignItems: "right",
+          marginLeft: 40,
+        },
+      }}
+    >
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name="Home"
+        component={Home}
+      />
       <Stack.Screen name="NewsDetail" component={NewsDetail} />
       <Stack.Screen name="NewsList" component={NewsList} />
     </Stack.Navigator>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {},
+});
 
 export default AppNavigator;
